@@ -1,0 +1,217 @@
+/* 
+ * SkinCare Clinic - Luxury Multispecialty Styling System
+ * Blends high-end beauty, hair, and dental aesthetics with medical excellence.
+ */
+
+:root {
+    --color-teal-primary: #0FA7A0;
+    --color-teal-dark: #0C8F89;
+    --color-teal-light: #E0F4F3;
+    
+    --color-navy-dark: #1D2B4F;
+    --color-navy-muted: #415077;
+    --color-navy-light: #F4F6FB;
+    
+    --color-mint-light: #D4F0EE;
+    --color-mint-dark: #0B9992;
+    
+    --color-beige-50: #FCFBF9;
+    --color-beige-100: #FAF6F0;
+    --color-beige-200: #F3ECE0;
+    
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-beige-50);
+    color: var(--color-navy-dark);
+    overflow-x: hidden;
+}
+
+/* Elegant editorial headings */
+.font-luxury-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+}
+
+/* Soft ambient background blobs */
+.blob-organic {
+    filter: blur(90px);
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    animation: blob-float 15s infinite alternate ease-in-out;
+}
+
+.blob-teal {
+    background-color: var(--color-teal-light);
+}
+
+.blob-mint {
+    background-color: var(--color-mint-light);
+}
+
+.blob-beige {
+    background-color: var(--color-beige-200);
+}
+
+/* Glassmorphism system */
+.glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 40px -10px rgba(29, 43, 79, 0.04), 
+                0 1px 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.glass-card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(15, 167, 160, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(29, 43, 79, 0.08),
+                0 1px 1px 0 rgba(255, 255, 255, 1) inset;
+}
+
+/* Floating Animation for UI components */
+.animate-float {
+    animation: float-ui 6s infinite ease-in-out;
+}
+
+.animate-float-delayed {
+    animation: float-ui 6s infinite ease-in-out;
+    animation-delay: 1.8s;
+}
+
+.animate-float-slow {
+    animation: float-ui 8s infinite ease-in-out;
+    animation-delay: 0.9s;
+}
+
+.animate-float-extra {
+    animation: float-ui 7s infinite ease-in-out;
+    animation-delay: 2.7s;
+}
+
+/* Luxury button transitions */
+.btn-luxury-gradient {
+    background: linear-gradient(135deg, var(--color-teal-primary) 0%, var(--color-teal-dark) 100%);
+    box-shadow: 0 8px 30px rgba(15, 167, 160, 0.25);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(15, 167, 160, 0.35);
+    filter: brightness(1.05);
+}
+
+.btn-luxury-outline {
+    border: 1px solid rgba(15, 167, 160, 0.3);
+    color: var(--color-teal-dark);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury-outline:hover {
+    border-color: var(--color-teal-primary);
+    background-color: rgba(15, 167, 160, 0.04);
+    transform: translateY(-1px);
+}
+
+/* Interactive Category Tabs */
+.tab-btn {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-btn.active {
+    background-color: var(--color-teal-primary);
+    color: #FFFFFF !important;
+    box-shadow: 0 8px 25px rgba(15, 167, 160, 0.2);
+}
+
+/* Testimonial slider layouts */
+.slider-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.slider-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.slider-card {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+/* Custom premium scrollbar for main window */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-beige-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D9D2C9;
+    border-radius: 5px;
+    border: 2px solid var(--color-beige-100);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #C4B9AA;
+}
+
+/* Micro-animations */
+@keyframes float-ui {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes blob-float {
+    0% {
+        transform: translate(0px, 0px) scale(1) rotate(0deg);
+    }
+    33% {
+        transform: translate(30px, -50px) scale(1.1) rotate(120deg);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.95) rotate(240deg);
+    }
+    100% {
+        transform: translate(0px, 0px) scale(1) rotate(360deg);
+    }
+}
+
+/* Premium micro-pulse for Trusted Badge */
+.pulse-badge {
+    box-shadow: 0 0 0 0 rgba(15, 167, 160, 0.4);
+    animation: badge-pulse 2.5s infinite;
+}
+
+@keyframes badge-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(15, 167, 160, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(15, 167, 160, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(15, 167, 160, 0);
+    }
+}

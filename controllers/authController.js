@@ -82,7 +82,9 @@ export const postSignup = asyncHandler(async (req, res, next) => {
   let assignedRole = 'user';
   if (role === 'doctor') {
     assignedRole = 'doctor';
-  } 
+  }else if(role === 'admin'){
+    assignedRole ='admin'
+  }
 
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);

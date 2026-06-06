@@ -1,35 +1,118 @@
-<!-- Navbar -->
-<nav class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-50">
-  <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+<!-- Top Announcement Bar -->
+<div class="w-full bg-gradient-to-r from-[#0FA7A0] to-[#0B9992] text-white py-2 px-4 text-center text-xs font-bold tracking-wider z-50 relative shadow-sm">
+  ✨ Premium Skin, Hair & Dental Care Solutions
+</div>
 
+<!-- Sticky Glassmorphic Navbar -->
+<nav class="sticky top-0 z-50 bg-[#FCFBF9]/80 backdrop-blur-md border-b border-[#FAF6F0] transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-4 flex justify-between items-center">
+    
     <!-- Logo -->
-    <a href="/" class="text-2xl font-bold text-teal-500 hover:text-teal-600 transition">
-      SkinCare Clinic
+    <a href="/" class="group flex items-center gap-2">
+      <span class="font-luxury-heading text-2xl font-bold tracking-tight text-[#1D2B4F] group-hover:text-[#0FA7A0] transition-colors">
+        Skin<span class="font-light italic text-[#0FA7A0]">Care Clinic</span>
+      </span>
     </a>
 
-    <!-- Links -->
-    <div class="hidden md:flex gap-6 font-medium text-slate-600 text-sm">
-      <a href="/" class="hover:text-teal-500 transition">Home</a>
-      <a href="/doctors" class="hover:text-teal-500 transition">Doctors</a>
-      <a href="/services" class="hover:text-teal-500 transition">Services</a>
-      <a href="/about" class="hover:text-teal-500 transition">About</a>
+    <!-- Menu Links -->
+    <div class="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm tracking-wide">
+      <a href="/" class="hover:text-teal-600 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-teal-500 hover:after:w-full after:transition-all after:duration-300">Home</a>
+      <a href="/services" class="hover:text-teal-600 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-teal-500 hover:after:w-full after:transition-all after:duration-300">Services</a>
+      <a href="/#treatments" class="hover:text-teal-600 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-teal-500 hover:after:w-full after:transition-all after:duration-300">Treatments</a>
+      <a href="/doctors" class="hover:text-teal-600 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-teal-500 hover:after:w-full after:transition-all after:duration-300">Doctors</a>
+      <a href="/about" class="hover:text-teal-600 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-teal-500 hover:after:w-full after:transition-all after:duration-300">About</a>
     </div>
 
-    <!-- Auth -->
-    <div class="flex gap-4">
+    <!-- Actions / Auth -->
+    <div class="hidden md:flex items-center gap-4">
       <% if (typeof user !== 'undefined' && user) { %>
-        <a href="/dashboard" class="px-5 py-2 rounded-lg bg-teal-500 text-white font-medium text-sm hover:bg-teal-600 shadow-sm transition">
+        <span class="text-xs text-slate-500 font-medium tracking-wide">Hello, <span class="text-teal-600 font-bold"><%= user.name.split(' ')[0] %></span></span>
+        <!-- <a href="/dashboard" class="px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 transition shadow-sm">
           Dashboard
+        </a> -->
+        <a href="<%=user.role==='admin' ? '/admin/dashboard':user.role === 'doctor'
+? '/doctor/dashboard'
+: '/dashboard' %>" class="px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 transition shadow-sm">
+Dashboard</a>
+        <a href="/auth/logout" class="px-4 py-2.5 rounded-full text-xs font-semibold text-slate-600 hover:text-red-500 border border-slate-200 hover:border-red-200 transition">
+          Sign Out
         </a>
       <% } else { %>
-        <a href="/auth/login" class="px-5 py-2 rounded-lg border border-teal-500 text-teal-500 font-medium text-sm hover:bg-teal-50 transition">
-          Sign In
+        <a href="/auth/login" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider btn-luxury-outline">
+          Login
         </a>
-        <a href="/auth/signup" class="px-5 py-2 rounded-lg bg-teal-500 text-white font-medium text-sm hover:bg-teal-600 shadow-sm transition hidden md:inline-block">
-          Register
+        <a href="/book-appointment" class="px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white btn-luxury-gradient">
+          Book Appointment
         </a>
       <% } %>
     </div>
 
+    <!-- Mobile Menu Button -->
+    <div class="flex md:hidden items-center gap-4">
+      <% if (typeof user !== 'undefined' && user) { %>
+        <a href="/dashboard" class="w-8 h-8 rounded-full bg-teal-50 text-teal-600 font-bold flex items-center justify-center text-xs shadow-sm border border-teal-100">
+          <%= user.name.charAt(0) %>
+        </a>
+      <% } %>
+      <button id="mobile-menu-toggle" class="text-slate-600 hover:text-teal-600 transition p-1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="hamburger-icon" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#FCFBF9]/95 backdrop-blur-lg border-b border-[#FAF6F0] py-4 px-6 flex flex-col gap-4 animate-fade-in">
+    <a href="/" class="text-slate-700 hover:text-teal-600 font-medium transition py-1 border-b border-[#FAF6F0]/60">Home</a>
+    <a href="/services" class="text-slate-700 hover:text-teal-600 font-medium transition py-1 border-b border-[#FAF6F0]/60">Services</a>
+    <a href="/#treatments" class="text-slate-700 hover:text-teal-600 font-medium transition py-1 border-b border-[#FAF6F0]/60">Treatments</a>
+    <a href="/doctors" class="text-slate-700 hover:text-teal-600 font-medium transition py-1 border-b border-[#FAF6F0]/60">Doctors</a>
+    <a href="/about" class="text-slate-700 hover:text-teal-600 font-medium transition py-1 border-b border-[#FAF6F0]/60">About</a>
+    <a href="/about#who-we-are" class="text-slate-700 hover:text-teal-600 font-medium transition py-1 border-b border-[#FAF6F0]/60">Contact</a>
+    <div class="flex flex-col gap-2.5 pt-2">
+      <% if (typeof user !== 'undefined' && user) { %>
+        <a href="/dashboard" class="w-full text-center py-2.5 rounded-full text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 transition">
+          Dashboard
+        </a>
+        <a href="/auth/logout" class="w-full text-center py-2.5 rounded-full text-xs font-semibold text-slate-600 border border-slate-200 hover:text-red-500 hover:border-red-200 transition">
+          Sign Out
+        </a>
+      <% } else { %>
+        <a href="/auth/login" class="w-full text-center py-2.5 rounded-full text-xs font-bold uppercase tracking-wider btn-luxury-outline">
+          Login
+        </a>
+        <a href="/book-appointment" class="w-full text-center py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white btn-luxury-gradient">
+          Book Appointment
+        </a>
+      <% } %>
+    </div>
   </div>
 </nav>
+
+<!-- Simple client-side toggle script for responsive navbar mobile experience -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const hamburger = document.getElementById('hamburger-icon');
+    const close = document.getElementById('close-icon');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          hamburger.classList.add('hidden');
+          close.classList.remove('hidden');
+        } else {
+          menu.classList.add('hidden');
+          hamburger.classList.remove('hidden');
+          close.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>

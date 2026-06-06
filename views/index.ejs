@@ -1,118 +1,703 @@
 <%- include('partials/header') %>
 <%- include('partials/navbar') %>
 
-<!-- Main Layout Wrapper -->
-<main class="flex-grow w-full">
+<!-- Main Layout Wrapper with Multispecialty Brand Aesthetic -->
+<main class="flex-grow w-full relative overflow-hidden bg-[#FCFBF9] min-h-screen">
+    
+    <!-- Organic Background Decorative Blobs (Ambient Glows) -->
+    <div class="absolute top-[8%] left-[-15%] w-[450px] h-[450px] rounded-full blob-organic blob-teal z-0 pointer-events-none"></div>
+    <div class="absolute top-[30%] right-[-15%] w-[550px] h-[550px] rounded-full blob-organic blob-mint z-0 pointer-events-none"></div>
+    <div class="absolute bottom-[18%] left-[5%] w-[500px] h-[500px] rounded-full blob-organic blob-beige z-0 pointer-events-none"></div>
 
-    <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-teal-50 via-white to-white overflow-hidden py-16 md:py-24">
-        <!-- Smooth Curve Background (SVG) -->
-        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none shadow-sm pb-px z-0">
-            <svg class="relative block w-full h-[60px] md:h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C79.86,117.82,156.9,114.9,232.5,91.55,263,82.17,292.68,71.05,321.39,56.44Z" fill="#ffffff"></path>
-            </svg>
-        </div>
+    <!-- 1. Hero Section -->
+    <section class="relative pt-12 pb-24 md:pt-20 md:pb-32 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-16">
+            
+            <!-- Left Column: High-End Copy -->
+            <div class="w-full lg:w-1/2 flex flex-col text-left">
+                <!-- Glowing Trusted Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E0F4F3] border border-[#B3EAE6] text-[#0C8F89] w-fit mb-8 shadow-sm pulse-badge">
+                    <svg class="w-4 h-4 text-[#0FA7A0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <span class="text-xs font-bold uppercase tracking-widest">TRUSTED CLINIC EXPERTS</span>
+                </div>
 
-        <div class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-12 relative z-10 text-center md:text-left">
-            <!-- Left Side Text -->
-            <div class="w-full md:w-1/2">
-                <span class="inline-block py-1.5 px-4 rounded-full bg-teal-50 text-teal-600 text-sm font-semibold tracking-wide mb-6 border border-teal-100 shadow-sm">
-                    Welcome to SkinCare Clinic
-                </span>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 mb-6 leading-tight">
-                    Your <span class="text-teal-500">health</span> <br class="hidden md:block" /> is our priority
+                <!-- Editorial Headline -->
+                <h1 class="font-luxury-heading text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#1D2B4F] leading-[1.1] mb-6">
+                    Reveal Your <br/>
+                    <span class="font-light italic text-[#0FA7A0] relative">
+                        Natural Beauty & Smile
+                        <span class="absolute bottom-1 left-0 w-full h-[6px] bg-[#E0F4F3]/70 -z-10 rounded-full"></span>
+                    </span>
                 </h1>
-                <p class="text-lg text-slate-500 mb-10 max-w-lg font-light leading-relaxed mx-auto md:mx-0">
-                    Experience world-class medical care with our top specialists. We blend advanced technology with compassionate care.
+
+                <!-- Subheadline -->
+                <p class="text-slate-500 font-light text-base sm:text-lg leading-relaxed max-w-xl mb-10">
+                    Advanced skin, hair, and dental treatments designed to restore, enhance, and protect your confidence, wellness, and long-lasting care.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-                    <a href="/doctors" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-teal-500 hover:bg-teal-600 text-white font-semibold text-lg shadow-lg shadow-teal-500/30 transition transform hover:-translate-y-0.5 text-center">
-                        Book Appointment
+
+                <!-- Action Button Cluster -->
+                <div class="flex flex-col sm:flex-row items-center gap-4 mb-10">
+                    <a href="/book-appointment" class="w-full sm:w-auto px-8 py-4 rounded-full text-center text-sm font-bold uppercase tracking-wider text-white btn-luxury-gradient shadow-lg">
+                        Book Consultation
                     </a>
-                    <a href="/services" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-white border border-slate-200 hover:border-teal-500 hover:text-teal-500 text-slate-600 font-medium text-lg shadow-sm transition text-center">
-                        Our Services
+                    <a href="/services" class="w-full sm:w-auto px-8 py-4 rounded-full text-center text-sm font-bold uppercase tracking-wider btn-luxury-outline">
+                        Explore Services
                     </a>
                 </div>
-            </div>
-            
-            <!-- Right Side Image -->
-            <div class="w-full md:w-1/2 relative mt-10 md:mt-0">
-                <!-- Background decorative elements for image -->
-                <div class="absolute inset-0 bg-teal-200 rounded-full blur-3xl opacity-30 transform translate-x-10 -translate-y-10"></div>
-                <img src="/images/doctor_hero.png" alt="Professional Doctor" class="relative z-10 w-full max-w-md mx-auto aspect-square object-cover rounded-3xl shadow-xl shadow-slate-200/50 border-8 border-white transform hover:scale-[1.01] transition duration-500">
-            </div>
-        </div>
-    </section>
 
-    <!-- Departments Section -->
-    <section class="max-w-6xl mx-auto px-4 md:px-8 py-20 mb-10">
-        
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Our Departments</h2>
-            <p class="text-lg text-slate-500 max-w-2xl mx-auto font-light">We provide quality care for your health with specialized treatments designed exactly for you.</p>
-        </div>
-
-        <!-- Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Skin Care -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(20,184,166,0.12)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
-                <div class="w-full h-56 relative overflow-hidden">
-                    <img src="/images/skin_care.png" alt="Skin Care Treatments" class="w-full h-full object-cover">
-                    <!-- Overlay gradient for smooth text blending if needed -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                </div>
-                <div class="p-8 flex-grow flex flex-col text-center md:text-left">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3">Skin Care</h3>
-                    <p class="text-slate-500 leading-relaxed font-light mb-8 flex-grow text-sm md:text-base">
-                        Advanced treatments for healthy, glowing, and youthful skin tailored to your individual needs.
-                    </p>
-                    <a href="/doctors?department=skin" class="inline-flex items-center justify-center md:justify-start text-teal-600 hover:text-teal-700 font-semibold text-lg group w-fit transition-colors mx-auto md:mx-0">
-                        Learn More 
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </a>
+                <!-- Client Rating Badge -->
+                <div class="flex items-center gap-4 border-t border-[#FAF6F0] pt-6 w-fit">
+                    <div class="flex -space-x-2.5 overflow-hidden">
+                        <img class="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" alt="Client 1">
+                        <img class="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100" alt="Client 2">
+                        <img class="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100" alt="Client 3">
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-sm font-bold text-[#1D2B4F]">5000+ Happy Clients</span>
+                            <span class="text-xs text-amber-500">★★★★★</span>
+                        </div>
+                        <p class="text-xs text-slate-400 font-light">Rated 5 Stars by verified patients</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Hair Care -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(20,184,166,0.12)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
-                <div class="w-full h-56 relative overflow-hidden">
-                    <img src="/images/hair_care.png" alt="Hair Care Solutions" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <!-- Right Column: Stunning Center Image & 4 Floating Glass Cards -->
+            <div class="w-full lg:w-1/2 relative flex justify-center mt-12 lg:mt-0">
+                
+                <!-- Centerpiece Model Image with Aesthetic Border -->
+                <div class="relative z-10 w-full max-w-[420px] aspect-[4/5] overflow-hidden rounded-[3rem] shadow-2xl border-[10px] border-white/80 transform hover:scale-[1.01] transition-transform duration-500 bg-white">
+                    <img src="/images/glow_skin_hero.png" alt="Confident Smiling Model" class="w-full h-full object-cover">
                 </div>
-                <div class="p-8 flex-grow flex flex-col text-center md:text-left">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3">Hair Care</h3>
-                    <p class="text-slate-500 leading-relaxed font-light mb-8 flex-grow text-sm md:text-base">
-                        Top solutions for scalp health, hair loss prevention, and restoration for thicker, stronger hair.
-                    </p>
-                    <a href="/doctors?department=hair" class="inline-flex items-center justify-center md:justify-start text-teal-600 hover:text-teal-700 font-semibold text-lg group w-fit transition-colors mx-auto md:mx-0">
-                        Learn More 
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Dentistry -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(20,184,166,0.12)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1 flex flex-col">
-                <div class="w-full h-56 relative overflow-hidden">
-                    <img src="/images/dentistry.png" alt="Professional Dentistry" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <!-- Floating Glassmorphic Card 1: Skin Specialists -->
+                <div class="absolute top-[8%] -left-6 sm:-left-12 z-20 glass-card p-4 rounded-2xl flex items-center gap-3 animate-float max-w-[210px]">
+                    <div class="w-9 h-9 rounded-xl bg-teal-50 text-[#0FA7A0] flex items-center justify-center font-bold text-lg">✨</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-[#1D2B4F] leading-none">Skin Care</h4>
+                        <p class="text-[10px] text-slate-500 font-medium mt-1">Dermal Specialists</p>
+                    </div>
                 </div>
-                <div class="p-8 flex-grow flex flex-col text-center md:text-left">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3">Dentistry</h3>
-                    <p class="text-slate-500 leading-relaxed font-light mb-8 flex-grow text-sm md:text-base">
-                        Professional dental care for a bright, clean, and healthy smile with modern techniques.
-                    </p>
-                    <a href="/doctors?department=dentistry" class="inline-flex items-center justify-center md:justify-start text-teal-600 hover:text-teal-700 font-semibold text-lg group w-fit transition-colors mx-auto md:mx-0">
-                        Learn More 
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </a>
+
+                <!-- Floating Glassmorphic Card 2: Hair Experts -->
+                <div class="absolute top-[35%] -right-8 z-20 glass-card p-4 rounded-2xl flex items-center gap-3 animate-float-delayed max-w-[210px]">
+                    <div class="w-9 h-9 rounded-xl bg-[#E0F4F3] text-[#0FA7A0] flex items-center justify-center font-bold">💇‍♀️</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-[#1D2B4F] leading-none">Hair Care</h4>
+                        <p class="text-[10px] text-slate-500 font-medium mt-1">PRP & Scalp Experts</p>
+                    </div>
                 </div>
+
+                <!-- Floating Glassmorphic Card 3: Dental Care -->
+                <div class="absolute bottom-[20%] -left-8 z-20 glass-card p-4 rounded-2xl flex items-center gap-3 animate-float-slow max-w-[210px]">
+                    <div class="w-9 h-9 rounded-xl bg-teal-50 text-[#0FA7A0] flex items-center justify-center font-bold">🦷</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-[#1D2B4F] leading-none">Dental Care</h4>
+                        <p class="text-[10px] text-slate-500 font-medium mt-1">Cosmetic Dentistry</p>
+                    </div>
+                </div>
+
+                <!-- Floating Glassmorphic Card 4: Advanced Technology -->
+                <div class="absolute bottom-[6%] -right-4 z-20 glass-card p-4 rounded-2xl flex items-center gap-3 animate-float-extra max-w-[220px]">
+                    <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">⚙️</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-[#1D2B4F] leading-none">Advanced Tech</h4>
+                        <p class="text-[10px] text-slate-500 font-medium mt-1">FDA Approved Lasers</p>
+                    </div>
+                </div>
+
             </div>
 
         </div>
     </section>
+
+    <!-- 2. Interactive Services Section -->
+    <section id="treatments" class="relative py-24 bg-white z-10 border-y border-[#FAF6F0]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#0FA7A0] mb-4 inline-block">CLINICAL SUITES</span>
+                <h2 class="font-luxury-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#1D2B4F] leading-tight">
+                    Complete Care for <br/>
+                    <span class="font-light italic text-[#0FA7A0]">Your Beauty & Health</span>
+                </h2>
+                <p class="text-slate-500 font-light text-sm sm:text-base mt-4 leading-relaxed">
+                    Explore our three luxury clinical categories engineered with board-certified diagnostics and gold-standard technology.
+                </p>
+            </div>
+
+            <!-- Custom Interactive Categories Switcher (Tabs) -->
+            <div class="flex justify-center gap-3 mb-16 max-w-lg mx-auto p-1 bg-slate-100 rounded-full border border-slate-200">
+                <button onclick="switchTab('skin-care-tab')" id="skin-care-tab-btn" class="tab-btn active flex-1 py-3 px-6 rounded-full text-xs font-bold uppercase tracking-wider text-slate-600 hover:text-[#0FA7A0] text-center">
+                    Skin Care
+                </button>
+                <button onclick="switchTab('hair-care-tab')" id="hair-care-tab-btn" class="tab-btn flex-1 py-3 px-6 rounded-full text-xs font-bold uppercase tracking-wider text-slate-600 hover:text-[#0FA7A0] text-center">
+                    Hair Care
+                </button>
+                <button onclick="switchTab('dental-care-tab')" id="dental-care-tab-btn" class="tab-btn flex-1 py-3 px-6 rounded-full text-xs font-bold uppercase tracking-wider text-slate-600 hover:text-[#0FA7A0] text-center">
+                    Dental Care
+                </button>
+            </div>
+
+            <!-- Tab Contents (12 Premium Cards Total, 4 per Tab) -->
+            <div>
+                
+                <!-- Category 1: SKIN CARE -->
+                <div id="skin-care-tab" class="services-tab-pane grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Skin Card 1: Acne Treatment -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative">
+                            <img src="/images/acne_treatment.png" alt="Acne Treatment" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Acne Treatment
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Target lesions, reduce scars, and clarify clogged sebaceous glands combining phototherapy and extractions.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Skin Card 2: Hydra Facial -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative">
+                            <img src="/images/hydrafacial.png" alt="Hydra Facial" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Hydra Facial
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Multi-stage deep extraction facial using intense custom vacuum suction and hydro-antioxidant serums.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Skin Card 3: Anti Aging -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative">
+                            <img src="/images/anti_aging.png" alt="Anti Aging" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Anti Aging
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Smooth micro-wrinkles, restore lost facial volume, and lift skin margins with clinically sound peptides.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Skin Card 4: Pigmentation Care -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative">
+                            <img src="/images/chemical_peel.png" alt="Pigmentation Care" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Pigmentation Care
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Eradicate melasma, age spots, and hyperpigmentation with chemical peels and focused diagnostic scaling.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Category 2: HAIR CARE (Hidden by default) -->
+                <div id="hair-care-tab" class="services-tab-pane hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Hair Card 1: Hair Fall Treatment -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative bg-slate-100">
+                            <img src="/images/hair_care.png" alt="Hair Fall Treatment" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Hair Fall Treatment
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Stop severe hair loss and strengthen delicate roots with specialized diagnostic checks and nutrition.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hair Card 2: PRP Therapy -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative">
+                            <img src="/images/laser_therapy.png" alt="PRP Therapy" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> PRP Therapy
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Platelet-rich plasma cell injections designed to awaken sleeping follicles and increase strand density.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hair Card 3: Hair Restoration -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=400" alt="Hair Restoration" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Hair Restoration
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Reconstruct thinning crown layouts using precision follicular transfer technologies and micro-grafts.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hair Card 4: Scalp Care -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative">
+                            <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&q=80&w=400" alt="Scalp Care" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Scalp Care
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Treat scales, dandruff, and follicular toxicity using clinical exfoliation and customized tea tree steams.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Category 3: DENTAL CARE (Hidden by default) -->
+                <div id="dental-care-tab" class="services-tab-pane hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Dental Card 1: Teeth Whitening -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative">
+                            <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=400" alt="Teeth Whitening" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Teeth Whitening
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Achieve up to 8 shades lighter with clinical cold-laser activation systems and custom home kits.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dental Card 2: Smile Designing -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative">
+                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=400" alt="Smile Designing" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Smile Designing
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Bespoke cosmetic alignment maps combining porcelain veneers, crowns, and digital gum contouring.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dental Card 3: Dental Implants -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative">
+                            <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=400" alt="Dental Implants" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Dental Implants
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Replace missing teeth permanently with biological osseointegrated titanium posts and premium crowns.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dental Card 4: Invisible Aligners -->
+                    <div class="glass-card glass-card-hover rounded-[2rem] overflow-hidden flex flex-col p-5 group">
+                        <div class="w-full h-48 rounded-[1.5rem] overflow-hidden mb-5 relative">
+                            <img src="/images/invisiblr aligners.png" alt="Invisible Aligners" class="w-full h-full object-cover group-hover:scale-[1.03] transition duration-500">
+                        </div>
+                        <div class="px-2 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-[#1D2B4F] mb-2 flex items-center gap-2">
+                                    <span class="text-[#0FA7A0]">✦</span> Invisible Aligners
+                                </h3>
+                                <p class="text-slate-500 font-light text-xs leading-relaxed mb-6">
+                                    Clear, premium thermoplastic trays customized via 3D scanning for painless cosmetic dental straightness.
+                                </p>
+                            </div>
+                            <a href="/services" class="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-[#0C8F89] hover:text-[#0FA7A0] transition-colors gap-1 group/link">
+                                Learn More <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. Why Choose Us Section (6 Premium Cards) -->
+    <section class="relative py-24 z-10 bg-gradient-to-b from-[#FCFBF9] to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#0FA7A0] mb-4 inline-block">OUR CORE VALUES</span>
+                <h2 class="font-luxury-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#1D2B4F] leading-tight">
+                    Why Patients <br/>
+                    <span class="font-light italic text-[#0FA7A0]">Trust Our Clinic</span>
+                </h2>
+                <p class="text-slate-500 font-light text-sm sm:text-base mt-4 leading-relaxed">
+                    Our luxury philosophy integrates medical precision, strict hygiene protocols, and exceptionally tailored routines.
+                </p>
+            </div>
+
+            <!-- Features Grid (6 Cards) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Pillar 1: Certified Specialists -->
+                <div class="bg-white p-8 rounded-3xl border border-[#FAF6F0] shadow-sm hover:shadow-md hover:border-[#0FA7A0]/20 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-[#0FA7A0] flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1D2B4F] mb-3">Certified Specialists</h3>
+                    <p class="text-slate-500 font-light text-sm leading-relaxed">
+                        Access board-certified experts with deep specializations in aesthetic medicine, trichology, and cosmetic dentistry.
+                    </p>
+                </div>
+
+                <!-- Pillar 2: FDA Approved Technology -->
+                <div class="bg-white p-8 rounded-3xl border border-[#FAF6F0] shadow-sm hover:shadow-md hover:border-[#0FA7A0]/20 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-[#0FA7A0] flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1D2B4F] mb-3">FDA Approved Tech</h3>
+                    <p class="text-slate-500 font-light text-sm leading-relaxed">
+                        We invest in gold-standard, FDA-approved laser technology, premium medical equipment, and clinically-sound peels and products.
+                    </p>
+                </div>
+
+                <!-- Pillar 3: Personalized Treatments -->
+                <div class="bg-white p-8 rounded-3xl border border-[#FAF6F0] shadow-sm hover:shadow-md hover:border-[#0FA7A0]/20 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-[#0FA7A0] flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1D2B4F] mb-3">Personalized Treatments</h3>
+                    <p class="text-slate-500 font-light text-sm leading-relaxed">
+                        Your biological profile is unique. We provide detailed diagnostic surface checks to formulate customized clinical blueprints.
+                    </p>
+                </div>
+
+                <!-- Pillar 4: Safe & Hygienic Environment -->
+                <div class="bg-white p-8 rounded-3xl border border-[#FAF6F0] shadow-sm hover:shadow-md hover:border-[#0FA7A0]/20 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-[#0FA7A0] flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1D2B4F] mb-3">Safe & Hygienic</h3>
+                    <p class="text-slate-500 font-light text-sm leading-relaxed">
+                        Uncompromising medical hygiene standards combined with high-end, relaxing luxury aesthetic room environments.
+                    </p>
+                </div>
+
+                <!-- Pillar 5: Modern Equipment -->
+                <div class="bg-white p-8 rounded-3xl border border-[#FAF6F0] shadow-sm hover:shadow-md hover:border-[#0FA7A0]/20 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-[#0FA7A0] flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1D2B4F] mb-3">Modern Equipment</h3>
+                    <p class="text-slate-500 font-light text-sm leading-relaxed">
+                        State-of-the-art diagnostic machinery, ultra-precise dental suites, and specialized scalp restoration apparatus.
+                    </p>
+                </div>
+
+                <!-- Pillar 6: Premium Patient Care -->
+                <div class="bg-white p-8 rounded-3xl border border-[#FAF6F0] shadow-sm hover:shadow-md hover:border-[#0FA7A0]/20 transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-50 text-[#0FA7A0] flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#1D2B4F] mb-3">Premium Patient Care</h3>
+                    <p class="text-slate-500 font-light text-sm leading-relaxed">
+                        Enjoy VIP hospitality, personal medical coordinators, transparent healing follow-ups, and a highly responsive staff.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. Testimonials Section -->
+    <section class="relative py-24 z-10 bg-white border-t border-[#FAF6F0] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="max-w-xl text-left">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#0FA7A0] mb-3 inline-block">Real Journeys</span>
+                    <h2 class="font-luxury-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#1D2B4F] leading-tight">
+                        What Our <br/>
+                        <span class="font-light italic text-[#0FA7A0]">Clients Say</span>
+                    </h2>
+                </div>
+                <!-- Navigation Controls -->
+                <div class="flex gap-3">
+                    <button id="slider-prev" class="w-12 h-12 rounded-full border border-slate-200 hover:border-[#0FA7A0] hover:text-[#0C8F89] flex items-center justify-center text-slate-500 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button id="slider-next" class="w-12 h-12 rounded-full border border-slate-200 hover:border-[#0FA7A0] hover:text-[#0C8F89] flex items-center justify-center text-slate-500 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slider Container -->
+            <div id="testimonial-slider" class="flex gap-8 slider-container pb-8">
+                
+                <!-- Review Card 1: Skin -->
+                <div class="slider-card w-full md:w-[48%] lg:w-[31%] glass-card p-8 rounded-[2rem] flex flex-col justify-between">
+                    <div>
+                        <!-- Stars -->
+                        <div class="flex text-amber-500 gap-1 mb-6">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                        <p class="text-slate-600 font-light text-sm sm:text-base leading-relaxed italic mb-8">
+                            "My acne struggles are finally over. The personalized Hydra Facial and peeling routine completely transformed my skin texture in just three months! The clinical care is phenomenal."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-[#FAF6F0] pt-6">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120" alt="Elena Rostova" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow">
+                        <div>
+                            <h4 class="text-sm font-bold text-[#1D2B4F]">Elena Rostova</h4>
+                            <p class="text-xs text-slate-400 font-medium">Acne Patient (Dallas)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2: Hair -->
+                <div class="slider-card w-full md:w-[48%] lg:w-[31%] glass-card p-8 rounded-[2rem] flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 gap-1 mb-6">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                        <p class="text-slate-600 font-light text-sm sm:text-base leading-relaxed italic mb-8">
+                            "The scalp rejuvenation and PRP hair fall treatments saved my hair density. The staff is exceptionally professional and the spa-like atmosphere made every session incredibly relaxing."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-[#FAF6F0] pt-6">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120" alt="Sophia Moretti" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow">
+                        <div>
+                            <h4 class="text-sm font-bold text-[#1D2B4F]">Sophia Moretti</h4>
+                            <p class="text-xs text-slate-400 font-medium">PRP Patient (Miami)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3: Dental -->
+                <div class="slider-card w-full md:w-[48%] lg:w-[31%] glass-card p-8 rounded-[2rem] flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 gap-1 mb-6">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                        <p class="text-slate-600 font-light text-sm sm:text-base leading-relaxed italic mb-8">
+                            "Teeth whitening and smile designing at SkinCare Clinic completely changed my confidence. The dental suite is state-of-the-art and the cosmetic results exceeded my expectations."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-[#FAF6F0] pt-6">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120" alt="Dr. Aaron Ross" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow">
+                        <div>
+                            <h4 class="text-sm font-bold text-[#1D2B4F]">Aisha Vance</h4>
+                            <p class="text-xs text-slate-400 font-medium">Dental Patient (Chicago)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 4: General -->
+                <div class="slider-card w-full md:w-[48%] lg:w-[31%] glass-card p-8 rounded-[2rem] flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 gap-1 mb-6">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                        <p class="text-slate-600 font-light text-sm sm:text-base leading-relaxed italic mb-8">
+                            "An absolute oasis of premium patient care. Whether it is a dermatological chemical peel or a dental invisalign check, the hospitality is pure luxury. Highly recommended!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-[#FAF6F0] pt-6">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120" alt="Isabella C." class="w-12 h-12 rounded-full object-cover border-2 border-white shadow">
+                        <div>
+                            <h4 class="text-sm font-bold text-[#1D2B4F]">Isabella Carter</h4>
+                            <p class="text-xs text-slate-400 font-medium">Invisalign Patient (New York)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. Appointment CTA Banner -->
+    <div class="px-4 sm:px-6 lg:px-8 bg-white pb-24 z-10 relative">
+        <section class="max-w-6xl mx-auto bg-gradient-to-br from-[#1C2B4F] via-[#111C38] to-[#0A8E88] py-16 md:py-24 rounded-[3rem] shadow-2xl relative overflow-hidden text-center border border-slate-800">
+            <!-- Luxury Abstract Shape Backdrop -->
+            <div class="absolute inset-0 z-0 opacity-15 mix-blend-overlay">
+                <svg class="h-full w-full object-cover" preserveAspectRatio="none" fill="currentColor" viewBox="0 0 100 100">
+                    <path d="M0,50 C30,10 70,90 100,50 L100,100 L0,100 Z"></path>
+                </svg>
+            </div>
+            <!-- Ambient glowing bubbles -->
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-[#0FA7A0] rounded-full blur-[140px] opacity-10"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-500 rounded-full blur-[140px] opacity-10"></div>
+            
+            <div class="relative z-10 max-w-3xl mx-auto px-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#0FA7A0] mb-4 inline-block">Consultation Booking</span>
+                <h2 class="font-luxury-heading text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6">
+                    Start Your Skin, Hair & Smile <br class="sm:hidden"/>
+                    <span class="font-light italic text-[#0FA7A0]">Transformation Today</span>
+                </h2>
+                <p class="text-slate-300 font-light text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-10">
+                    Embark on a customized clinical path to glowing skin, dense hair, and a flawless cosmetic smile. Consult today.
+                </p>
+                <a href="/book-appointment" class="inline-block px-10 py-4.5 rounded-full bg-white hover:bg-slate-50 text-[#1D2B4F] font-bold text-xs uppercase tracking-wider hover:shadow-xl transition transform hover:-translate-y-0.5">
+                    Book Appointment Now
+                </a>
+            </div>
+        </section>
+    </div>
 
 </main>
+
+<!-- Interactive CSS/JS Category Tabs & Carousel Scripts -->
+<script>
+  function switchTab(tabId) {
+    // Hide all service panes
+    const panes = document.querySelectorAll('.services-tab-pane');
+    panes.forEach(pane => pane.classList.add('hidden'));
+
+    // Remove active styles from all buttons
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // Show selected pane
+    const selectedPane = document.getElementById(tabId);
+    if (selectedPane) {
+      selectedPane.classList.remove('hidden');
+    }
+
+    // Set button active
+    const selectedBtn = document.getElementById(tabId + '-btn');
+    if (selectedBtn) {
+      selectedBtn.classList.add('active');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('testimonial-slider');
+    const prev = document.getElementById('slider-prev');
+    const next = document.getElementById('slider-next');
+
+    if (slider && prev && next) {
+      const getScrollAmount = () => {
+        const card = slider.querySelector('.slider-card');
+        return card ? card.offsetWidth + 32 : 300; 
+      };
+
+      prev.addEventListener('click', () => {
+        slider.scrollBy({
+          left: -getScrollAmount(),
+          behavior: 'smooth'
+        });
+      });
+
+      next.addEventListener('click', () => {
+        slider.scrollBy({
+          left: getScrollAmount(),
+          behavior: 'smooth'
+        });
+      });
+    }
+  });
+</script>
 
 <%- include('partials/footer') %>

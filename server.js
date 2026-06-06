@@ -16,6 +16,8 @@ import { errorHandler } from './middlewares/errorHandler.js';
 import { NotFoundError } from './utils/appError.js';
 import servicesRoutes from "./routes/services.js";
 import aboutRoutes from "./routes/about.js";
+import jwt from 'jsonwebtoken';
+import User from './models/User.js';
 // ES6 module equivalents for __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -36,6 +38,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// Expose logged-in user to EJS views globally for premium navbar dynamic auth states
+app.use(async (req, res, next) => {
+  try {
+    const token = req.cookies.jwt;
+    if (token) {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const user = await User.findById(decoded.id).select('-password');
+      if (user) {
+        req.user = user;
+        res.locals.user = user;
+      }
+    }
+  } catch (err) {
+    // Session token invalid or expired, proceed silently as guest
+  }
+  next();
+});
+
 app.use(requestLogger);
 
 // Routes

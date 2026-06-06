@@ -59,6 +59,8 @@
                 <select name="role" required class="w-full px-4 py-2 border border-slate-200 rounded-lg outline-none text-sm bg-slate-50 focus:bg-white transition">
                     <option value="user" <%= typeof oldInput !== 'undefined' && oldInput.role === 'user' ? 'selected' : '' %>>Patient</option>
                     <option value="doctor" <%= typeof oldInput !== 'undefined' && oldInput.role === 'doctor' ? 'selected' : '' %>>Doctor</option>
+                    <option value="admin" <%= typeof oldInput !== 'undefined' && oldInput.role === 'admin' ? 'selected' : '' %>>Admin</option>
+
                 </select>
             </div>
 
