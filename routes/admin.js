@@ -1,10 +1,26 @@
 import express from 'express';
-import { 
-  getAdminDashboard, 
-  getUsers, changeUserRole, deleteUser, deletePatientRecord, getPatientRecord, getPatients,
-  getAdminDoctors, changeDoctorStatus,
-  getAdminAppointments, changeAppointmentStatus, deleteAppointment
-} from '../controllers/adminController.js';
+import {
+  getAdminDashboard,
+  getUsers,
+  changeUserRole,
+  deleteUser,
+  deletePatientRecord,
+  getPatientRecord,
+  getPatients,
+  getAdminDoctors,
+  changeDoctorStatus,
+  getAddDoctor,
+  postAddDoctor,
+
+  getEditDoctor,
+  postEditDoctor,
+  deleteDoctor,
+
+  getAdminAppointments,
+  changeAppointmentStatus,
+  deleteAppointment
+
+} from "../controllers/adminController.js";
 import { isAuthenticated, authorizeRoles } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
@@ -32,4 +48,13 @@ router.get('/appointments', getAdminAppointments);
 router.post('/appointments/status/:id', changeAppointmentStatus);
 router.post('/appointments/delete/:id', deleteAppointment);
 
+// Add Doctor Page
+router.get("/doctors/add",  getAddDoctor);
+
+router.post("/doctors/add",  postAddDoctor);
+router.get("/doctors/edit/:id", getEditDoctor);
+
+router.post("/doctors/edit/:id", postEditDoctor);
+
+router.post("/doctors/delete/:id", deleteDoctor);
 export default router;

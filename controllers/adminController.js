@@ -3,7 +3,7 @@ import { NotFoundError } from '../utils/appError.js';
 import Doctor from '../models/Doctor.js';
 import User from '../models/User.js';
 import Appointment from '../models/Appointment.js';
-
+import bcrypt from "bcryptjs";
 export const getAdminDashboard = asyncHandler(async (req, res) => {
   const doctorCount = await Doctor.countDocuments();
   const userCount = await User.countDocuments();
@@ -181,6 +181,256 @@ export const changeDoctorStatus = asyncHandler(async (req, res) => {
   res.redirect('/admin/doctors');
 });
 
+export const getAddDoctor = asyncHandler(async (req, res) => {
+  res.render("admin/addDoctor", {
+    title: "Add Doctor",
+    user: req.user
+  });
+});
+
+// // Save Doctor
+// export const postAddDoctor = asyncHandler(async (req, res) => {
+//   const {
+//     name,
+//     email,
+//     password,
+//     phone,
+//     department,
+//     qualification,
+//     experience,
+//     fee,
+//     availableDays,
+//     availableTime
+//   } = req.body;
+
+//   // Email already exists?
+//   const existingUser = await User.findOne({ email });
+
+//   if (existingUser) {
+//     return res.render("admin/addDoctor", {
+//       title: "Add Doctor",
+//       user: req.user,
+//       message: "Email already exists"
+//     });
+//   }
+
+//   const hashedPassword = await bcrypt.hash(password, 10);
+
+//   // Create User
+//   const newUser = await User.create({
+//     name,
+//     email,
+//     password: hashedPassword,
+//     role: "doctor"
+//   });
+
+//   // Create Doctor Profile
+//   await Doctor.create({
+//     userId: newUser._id,
+//     name,
+//     email,
+//     phone,
+//     department,
+//     qualification,
+//     experience,
+//     fee,
+//     availableDays,
+//     availableTime,
+//     status: "verified"
+//   });
+
+//   res.redirect("/admin/doctors");
+// });
+// export const postAddDoctor = asyncHandler(async (req, res) => {
+
+//   try {
+
+//     console.log(req.body);
+
+//     const {
+//       name,
+//       email,
+//       password,
+//       phone,
+//       department,
+//       qualification,
+//       experience,
+//       fee,
+//       availableDays,
+//       availableTime
+//     } = req.body;
+
+//     const existingUser = await User.findOne({ email });
+
+//     if (existingUser) {
+//       return res.send("Email already exists");
+//     }
+
+//     const hashedPassword = await bcrypt.hash(password, 10);
+
+//     const newUser = await User.create({
+//       name,
+//       email,
+//       password: hashedPassword,
+//       role: "doctor"
+//     });
+
+//     console.log("User Created");
+
+//     const doctor = await Doctor.create({
+//       userId: newUser._id,
+//       name,
+//       email,
+//       phone,
+//       department,
+//       qualification,
+//       experience: Number(experience),
+//       fee: Number(fee),
+//       availableDays,
+//       availableTime,
+//       status: "verified"
+//     });
+
+//     console.log("Doctor Created", doctor);
+
+//     res.redirect("/admin/doctors");
+
+//   } catch (err) {
+
+//     console.log(err);
+
+//     res.send(err.message);
+
+//   }
+
+// });
+export const postAddDoctor = asyncHandler(async (req, res) => {
+  try {
+
+    console.log(req.body);
+
+    const {
+      name,
+      email,
+      password,
+      phone,
+      department,
+      qualification,
+      experience,
+      fee,
+      availableDays,
+      availableTime
+    } = req.body;
+
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.send("Email already exists");
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = await User.create({
+      name,
+      email,
+      password: hashedPassword,
+      role: "doctor"
+    });
+
+    console.log("✅ User Created");
+
+    // 👇 ഇവിടെ add ചെയ്യുക
+    console.log("Before Doctor Create");
+
+    const doctor = await Doctor.create({
+      userId: newUser._id,
+      name,
+      email,
+      phone,
+      department,
+      qualification,
+      experience: Number(experience),
+      fee: Number(fee),
+      availableDays,
+      availableTime,
+      status: "verified"
+    });
+
+    // 👇 ഇവിടെ add ചെയ്യുക
+    console.log("After Doctor Create");
+    console.log(doctor);
+
+    res.redirect("/admin/doctors");
+
+  } catch (err) {
+    console.log("ERROR:", err);
+    res.send(err.message);
+  }
+});
+
+export const getEditDoctor = asyncHandler(async (req, res) => {
+
+  const doctor = await Doctor.findById(req.params.id);
+
+  if (!doctor) {
+    throw new NotFoundError("Doctor not found");
+  }
+
+  res.render("admin/editDoctor", {
+    title: "Edit Doctor",
+    user: req.user,
+    doctor
+  });
+
+});
+export const postEditDoctor = asyncHandler(async (req, res) => {
+
+  const {
+    name,
+    email,
+    phone,
+    department,
+    qualification,
+    experience,
+    fee,
+    availableDays,
+    availableTime
+  } = req.body;
+
+  await Doctor.findByIdAndUpdate(req.params.id, {
+
+    name,
+    email,
+    phone,
+    department,
+    qualification,
+    experience,
+    fee,
+    availableDays,
+    availableTime
+
+  });
+
+  res.redirect("/admin/doctors");
+
+});
+export const deleteDoctor = asyncHandler(async (req, res) => {
+
+  const doctor = await Doctor.findById(req.params.id);
+
+  if (!doctor) {
+    throw new NotFoundError("Doctor not found");
+  }
+
+  if (doctor.userId) {
+    await User.findByIdAndDelete(doctor.userId);
+  }
+
+  await Doctor.findByIdAndDelete(req.params.id);
+
+  res.redirect("/admin/doctors");
+
+});
 // --- Appointment Management ---
 export const getAdminAppointments = asyncHandler(async (req, res) => {
   const { status, date } = req.query;

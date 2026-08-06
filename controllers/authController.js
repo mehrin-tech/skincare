@@ -41,13 +41,19 @@ export const postLogin = asyncHandler(async (req, res, next) => {
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
   res.cookie('jwt', token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
   
-  if (user.role === 'admin') {
-    res.redirect('/admin/dashboard');
-  } else if (user.role === 'doctor') {
-    res.redirect('/doctor/dashboard');
-  } else {
-    res.redirect('/dashboard');
-  }
+if (user.role === "admin") {
+  return res.redirect("/admin/dashboard");
+}
+
+if (user.role === "doctor") {
+  return res.redirect("/doctor/dashboard");
+}
+
+if (user.role === "patient") {
+  return res.redirect("/dashboard");
+}
+
+return res.redirect("/dashboard");
 });
 
 export const getSignup = (req, res) => {
@@ -56,7 +62,7 @@ export const getSignup = (req, res) => {
 };
 
 export const postSignup = asyncHandler(async (req, res, next) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password } = req.body;
   
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -79,13 +85,8 @@ export const postSignup = asyncHandler(async (req, res, next) => {
   }
 
   // Secure role parsing preventing admin tampering
-  let assignedRole = 'user';
-  if (role === 'doctor') {
-    assignedRole = 'doctor';
-  }else if(role === 'admin'){
-    assignedRole ='admin'
-  }
-
+  let assignedRole = 'patient';
+ 
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
 

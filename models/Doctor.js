@@ -1,31 +1,67 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const doctorSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: false,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  department: {
-    type: String,
-    required: true,
-    enum: ['Hair', 'Skin', 'Dentistry'],
-  },
-  experience: {
-    type: Number,
-    required: true,
-  },
-  status: {
-    type: String,
-    enum: ['verified', 'unverified'],
-    default: 'unverified',
-  }
-}, { timestamps: true });
+const doctorSchema = new mongoose.Schema(
+{
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    },
 
-const Doctor = mongoose.model('Doctor', doctorSchema);
+    name:{
+        type:String,
+        required:true
+    },
 
-export default Doctor;
+    email:{
+        type:String,
+        required:true
+    },
+
+    phone:{
+        type:String,
+        required:true
+    },
+
+    department:{
+        type:String,
+        enum:["Hair","Skin","Dentistry"],
+        required:true
+    },
+
+    qualification:{
+        type:String,
+        required:true
+    },
+
+    experience:{
+        type:Number,
+        required:true
+    },
+
+    fee:{
+        type:Number,
+        required:true
+    },
+
+    availableDays:{
+        type:String,
+        required:true
+    },
+
+    availableTime:{
+        type:String,
+        required:true
+    },
+
+    status:{
+        type:String,
+        enum:["verified","unverified"],
+        default:"verified"
+    }
+
+},
+{
+    timestamps:true
+});
+
+export default mongoose.model("Doctor",doctorSchema);

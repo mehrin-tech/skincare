@@ -59,17 +59,54 @@
         </header>
 
         <div class="p-4 md:p-8 space-y-6">
+            <div class="flex items-center justify-between">
+    <div>
+        <h3 class="text-lg font-semibold text-slate-800">Doctor Verification</h3>
+        <p class="text-sm text-slate-500">Manage and verify doctors</p>
+    </div>
+
+    <div class="flex items-center gap-4">
+
+    <form action="/admin/doctors" method="GET">
+        <input
+            type="text"
+            name="search"
+            placeholder="Search doctor..."
+            class="w-72 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-teal-500 outline-none">
+    </form>
+
+    <a href="/admin/doctors/add"
+       class="inline-flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">
+        + Add Doctor
+    </a>
+
+</div>
+</div>
             <div class="bg-white rounded border border-gray-200 overflow-hidden">
                 <table class="w-full text-left border-collapse">
-                    <thead class="bg-slate-50 border-b border-gray-200 text-slate-600 text-sm">
+                    <!-- <thead class="bg-slate-50 border-b border-gray-200 text-slate-600 text-sm">
                         <tr>
                             <th class="px-6 py-3.5 font-medium">Doctor Profile</th>
                             <th class="px-6 py-3.5 font-medium">Department</th>
                             <th class="px-6 py-3.5 font-medium text-center">Current Status</th>
                             <th class="px-6 py-3.5 font-medium text-center">Validation Control</th>
                         </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-100 text-sm">
+                    </thead> -->
+                    <thead class="bg-slate-50 border-b border-gray-200 text-slate-600 text-sm">
+<tr>
+    <th class="px-4 py-3">Doctor</th>
+    <th class="px-4 py-3">Email</th>
+    <th class="px-4 py-3">Phone</th>
+    <th class="px-4 py-3">Department</th>
+    <th class="px-4 py-3">Qualification</th>
+    <th class="px-4 py-3">Experience</th>
+    <th class="px-4 py-3">Fee</th>
+    <th class="px-4 py-3">Available</th>
+    <th class="px-4 py-3 text-center">Status</th>
+    <th class="px-4 py-3 text-center">Actions</th>
+</tr>
+</thead>
+                    <!-- <tbody class="divide-y divide-gray-100 text-sm">
                         <% doctors.forEach(d => { %>
                         <tr class="hover:bg-slate-50 transition-colors bg-white">
                             <td class="px-6 py-4 font-medium text-slate-800">
@@ -99,7 +136,132 @@
                             </td>
                         </tr>
                         <% }) %>
-                    </tbody>
+                    </tbody> -->
+                    <tbody class="divide-y divide-gray-100 text-sm">
+
+<% doctors.forEach(d => { %>
+
+<tr class="hover:bg-slate-50">
+
+    <td class="px-4 py-4 font-medium">
+        Dr. <%= d.name %>
+    </td>
+
+    <td class="px-4 py-4">
+        <%= d.email %>
+    </td>
+
+    <td class="px-4 py-4">
+        <%= d.phone %>
+    </td>
+
+    <td class="px-4 py-4">
+        <%= d.department %>
+    </td>
+
+    <td class="px-4 py-4">
+        <%= d.qualification %>
+    </td>
+
+    <td class="px-4 py-4">
+        <%= d.experience %>
+    </td>
+
+    <td class="px-4 py-4">
+        ₹ <%= d.fee %>
+    </td>
+
+    <td class="px-4 py-4">
+        <%= d.availableDays %><br>
+        <span class="text-xs text-gray-500">
+            <%= d.availableTime %>
+        </span>
+    </td>
+
+    <td class="px-4 py-4 text-center">
+
+        <% if(d.status==="verified"){ %>
+
+        <span class="px-3 py-1 rounded-full text-xs bg-green-100 text-green-700">
+            Verified
+        </span>
+
+        <% }else{ %>
+
+        <span class="px-3 py-1 rounded-full text-xs bg-yellow-100 text-yellow-700">
+            Pending
+        </span>
+
+        <% } %>
+
+    </td>
+
+    <td class="px-4 py-4">
+
+        <div class="flex gap-2 justify-center">
+
+            <!-- <form action="/admin/doctors/status/<%= d._id %>" method="POST">
+
+                <input
+                    type="hidden"
+                    name="status"
+                    value="verified">
+
+                <button
+                    class="px-3 py-1 bg-teal-600 text-white rounded hover:bg-teal-700">
+                    Verify
+                </button>
+
+            </form>
+
+            <form action="/admin/doctors/status/<%= d._id %>" method="POST">
+
+                <input
+                    type="hidden"
+                    name="status"
+                    value="unverified">
+
+                <button
+                    class="px-3 py-1 border rounded hover:bg-gray-100">
+                    Revoke
+                </button> -->
+               
+
+<div class="flex justify-center gap-2">
+
+    <a
+       href="/admin/doctors/edit/<%= d._id %>"
+       class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">
+        Edit
+    </a>
+
+    <form
+        action="/admin/doctors/delete/<%= d._id %>"
+        method="POST"
+        onsubmit="return confirm('Delete this doctor?')">
+
+        <button
+            class="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">
+            Delete
+        </button>
+
+    </form>
+
+</div>
+
+</td>
+
+            </form>
+
+        </div>
+
+    </td>
+
+</tr>
+
+<% }) %>
+
+</tbody>
                 </table>
             </div>
         </div>

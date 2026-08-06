@@ -145,45 +145,108 @@
                     
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-slate-100">
-                            <% if (recentAppointments && recentAppointments.length > 0) { %>
-                                <% recentAppointments.forEach(appt => { %>
-                                    <% const isPast = new Date(appt.date) < new Date(); %>
-                                    <tr class="hover:bg-slate-50 transition duration-150">
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-600 text-xs mr-3"><%= appt.doctorId.name.charAt(0) %></div>
-                                                <div class="font-medium text-sm text-slate-900 border-b border-transparent">Dr. <%= appt.doctorId.name %></div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                                            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-800 border border-slate-200">
-                                                <%= appt.doctorId.department %>
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600"><%= new Date(appt.date).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }) %></td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <% if (isPast) { %>
-                                                <span class="inline-flex items-center px-2.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 shadow-sm border border-slate-200">Completed</span>
-                                            <% } else { %>
-                                                <span class="inline-flex items-center px-2.5 py-1.5 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 shadow-sm border border-teal-200 animate-pulse-slow">Upcoming</span>
-                                            <% } %>
-                                        </td>
-                                       
-                                    </tr>
-                                <% }) %>
-                            <% } else { %>
-                                <tr>
-                                    <td colspan="4" class="px-6 py-12 text-center text-sm text-slate-500">
-                                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 mb-3">
-                                            <svg class="h-6 w-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                                        </div>
-                                        <p>No recent appointments logged.</p>
-                                        <a href="/appointments/book" class="inline-block mt-2 px-4 py-2 bg-teal-600 text-white rounded-lg font-medium hover:bg-teal-700 transition">Book your first visit</a>
-                                    </td>
-                                </tr>
-                            <% } %>
-                        </tbody>
+                  
+                            
+                                 <tbody class="bg-white divide-y divide-slate-100">
+
+<% if (recentAppointments && recentAppointments.length > 0) { %>
+
+    <% recentAppointments.forEach(appt => { %>
+
+    <tr>
+
+        <td class="px-6 py-4">
+
+            <% if(appt.doctorId){ %>
+
+                <div class="flex items-center">
+
+                    <div class="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-600 text-xs mr-3">
+                        <%= appt.doctorId.name.charAt(0) %>
+                    </div>
+
+                    <div class="font-medium text-sm">
+                        Dr. <%= appt.doctorId.name %>
+                    </div>
+
+                </div>
+
+            <% } else { %>
+
+                <span class="text-red-600">
+                    Doctor Not Available
+                </span>
+
+            <% } %>
+
+        </td>
+
+        <td class="px-6 py-4">
+
+            <% if(appt.doctorId){ %>
+
+                <%= appt.doctorId.department %>
+
+            <% } else { %>
+
+                -
+
+            <% } %>
+
+        </td>
+
+        <td class="px-6 py-4">
+            <%= new Date(appt.date).toLocaleString() %>
+        </td>
+        <td class="px-6 py-4">
+
+    <% if (appt.status === "confirmed") { %>
+
+        <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">
+            Confirmed
+        </span>
+
+    <% } else if (appt.status === "completed") { %>
+
+        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
+            Completed
+        </span>
+
+    <% } else if (appt.status === "cancelled") { %>
+
+        <span class="px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-medium">
+            Cancelled
+        </span>
+
+    <% } else { %>
+
+        <span class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-xs font-medium">
+            Pending
+        </span>
+
+    <% } %>
+
+</td>
+
+    </tr>
+
+    <% }) %>
+
+<% } else { %>
+
+<tr>
+
+    <td colspan="4" class="text-center py-10">
+        No recent appointments found.
+    </td>
+
+</tr>
+
+<% } %>
+
+</tbody>
+                             
+                       
                     </table>
                 </div>
             </div>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Doctor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50">
+
+<div class="min-h-screen flex items-center justify-center py-10 px-4">
+
+    <div class="w-full max-w-4xl bg-white rounded-xl shadow border border-gray-200">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between px-8 py-6 border-b">
+
+            <div>
+                <h1 class="text-2xl font-bold text-slate-800">
+                    Edit Doctor
+                </h1>
+
+                <p class="text-sm text-gray-500 mt-1">
+                    Update doctor information
+                </p>
+            </div>
+
+            <a href="/admin/doctors"
+               class="px-4 py-2 border rounded-lg hover:bg-gray-100">
+                Back
+            </a>
+
+        </div>
+
+        <!-- Form -->
+        <form action="/admin/doctors/edit/<%= doctor._id %>" method="POST" class="p-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Name -->
+                <div>
+                    <label class="block mb-2 font-medium">Doctor Name</label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        value="<%= doctor.name %>"
+                        required
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block mb-2 font-medium">Email</label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        value="<%= doctor.email %>"
+                        required
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label class="block mb-2 font-medium">Phone</label>
+
+                    <input
+                        type="text"
+                        name="phone"
+                        value="<%= doctor.phone %>"
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <!-- Department -->
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Department
+                    </label>
+
+                    <select
+                        name="department"
+                        class="w-full border rounded-lg px-4 py-3">
+
+                        <option value="Hair"
+                            <%= doctor.department==="Hair" ? "selected" : "" %>>
+                            Hair
+                        </option>
+
+                        <option value="Skin"
+                            <%= doctor.department==="Skin" ? "selected" : "" %>>
+                            Skin
+                        </option>
+
+                        <option value="Dentistry"
+                            <%= doctor.department==="Dentistry" ? "selected" : "" %>>
+                            Dentistry
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Qualification -->
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Qualification
+                    </label>
+
+                    <input
+                        type="text"
+                        name="qualification"
+                        value="<%= doctor.qualification %>"
+                        class="w-full border rounded-lg px-4 py-3">
+
+                </div>
+
+                <!-- Experience -->
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Experience
+                    </label>
+
+                    <input
+                        type="number"
+                        name="experience"
+                        value="<%= doctor.experience %>"
+                        class="w-full border rounded-lg px-4 py-3">
+
+                </div>
+
+                <!-- Fee -->
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Consultation Fee
+                    </label>
+
+                    <input
+                        type="number"
+                        name="fee"
+                        value="<%= doctor.fee %>"
+                        class="w-full border rounded-lg px-4 py-3">
+
+                </div>
+
+                <!-- Available Days -->
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Available Days
+                    </label>
+
+                    <input
+                        type="text"
+                        name="availableDays"
+                        value="<%= doctor.availableDays %>"
+                        class="w-full border rounded-lg px-4 py-3">
+
+                </div>
+
+                <!-- Available Time -->
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Available Time
+                    </label>
+
+                    <input
+                        type="text"
+                        name="availableTime"
+                        value="<%= doctor.availableTime %>"
+                        class="w-full border rounded-lg px-4 py-3">
+
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="flex justify-end gap-4 mt-10">
+
+                <a href="/admin/doctors"
+                   class="px-6 py-3 border rounded-lg hover:bg-gray-100">
+
+                    Cancel
+
+                </a>
+
+                <button
+                    type="submit"
+                    class="px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg">
+
+                    Update Doctor
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

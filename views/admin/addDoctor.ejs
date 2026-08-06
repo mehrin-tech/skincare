@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Doctor</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50">
+
+<div class="min-h-screen flex items-center justify-center py-10 px-4">
+
+    <div class="w-full max-w-4xl bg-white border border-gray-200 rounded-xl shadow-sm">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-gray-200 px-8 py-5">
+            <div>
+                <h1 class="text-2xl font-bold text-slate-800">
+                    Add Doctor
+                </h1>
+
+                <p class="text-sm text-slate-500 mt-1">
+                    Create a new doctor account
+                </p>
+            </div>
+
+            <a href="/admin/doctors"
+               class="px-4 py-2 border rounded-lg text-slate-600 hover:bg-gray-50">
+                Back
+            </a>
+        </div>
+
+        <form action="/admin/doctors/add" method="POST" class="p-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Name -->
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">
+                        Doctor Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        required
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        required
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="text"
+                        name="phone"
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none" required>
+                </div>
+
+                <!-- Department -->
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">
+                        Department
+                    </label>
+
+                   <select
+    name="department"
+    class="w-full border rounded-lg px-4 py-3">
+
+    <option value="Hair">Hair</option>
+
+    <option value="Skin">Skin</option>
+
+    <option value="Dentistry">Dentistry</option>
+
+</select>
+                </div>
+
+                <!-- Qualification -->
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">
+                        Qualification
+                    </label>
+
+                    <input
+                        type="text"
+                        name="qualification"
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <!-- Experience -->
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">
+                        Experience
+                    </label>
+
+                  <input
+type="number"
+name="experience"
+placeholder="5">
+                </div>
+
+                <!-- Consultation Fee -->
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">
+                        Consultation Fee
+                    </label>
+
+                    <input
+                        type="number"
+                        name="fee"
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <!-- Available Days -->
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">
+                        Available Days
+                    </label>
+
+                    <input
+                        type="text"
+                        name="availableDays"
+                        placeholder="Mon - Sat"
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <!-- Available Time -->
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-slate-700">
+                        Available Time
+                    </label>
+
+                    <input
+                        type="text"
+                        name="availableTime"
+                        placeholder="09:00 AM - 05:00 PM"
+                        class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="flex justify-end gap-4 mt-10">
+
+                <a href="/admin/doctors"
+                   class="px-6 py-3 border rounded-lg hover:bg-gray-50">
+                    Cancel
+                </a>
+
+                <button
+                    class="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-lg">
+                    Add Doctor
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
